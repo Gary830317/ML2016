@@ -8,7 +8,7 @@ Created on Sun Oct 09 12:48:11 2016
 import csv
 import pandas as pd
 
-file_location = "'./data/train.csv"
+file_location = "./data/train.csv"
 data = pd.read_csv(file_location) 
 
 #初始weight
@@ -111,7 +111,7 @@ for t in range(T):
 testfile_location = "./data/test_X.csv"
 data_test = pd.read_csv(testfile_location) 
 
-with open("'./data/sampleSubmission.csv", 'wb') as csvfile:
+with open("./data/sampleSubmission.csv", 'wb') as csvfile:
     spamwriter = csv.writer(csvfile, delimiter=',')
     spamwriter.writerow(['id', 'value'])
     t=0
