@@ -11,7 +11,7 @@ import csv
 import pandas as pd
 import numpy as np
 import math
-
+import sys
 #%%
 
 def gausian(x,everage,cov_matrix):
@@ -27,7 +27,7 @@ def p(x,everage0,everage1,cov_matrix):
 #%%
 
 
-testfile_location = "sys.argv[2]"
+testfile_location = sys.argv[2]
 data_test = pd.read_csv(testfile_location,encoding='big5',header=None) 
 
 data_test.columns=['id']+range(1,58)
@@ -46,7 +46,7 @@ everage0=np.array(h[0:57])
 everage1=np.array(h[57:114])
 
 
-with open("sys.argv[3]", 'wb') as csvfile:
+with open(sys.argv[3], 'wb') as csvfile:
     spamwriter = csv.writer(csvfile, delimiter=',')
     spamwriter.writerow(['id', 'label'])
     t=0
