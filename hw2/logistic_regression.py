@@ -18,7 +18,7 @@ import pandas as pd
 import random 
 import numpy as np
 import math
-
+import sys
 
 #%%
 def sigmoid_function(z):
@@ -61,7 +61,7 @@ def logistic_regression(train,w,b,learningrate):
 
 #%%
 
-traindata_location='sys.argv[1]'
+traindata_location=sys.argv[1]
 
 train=pd.read_csv(traindata_location,encoding='big5',header=None)
 train.columns=['id']+range(1,58)+['label']
@@ -83,7 +83,7 @@ for t in range(T):
     print t
     w,b=logistic_regression(train,w,b,learningrate)
 
-h = open('sys.argv[2].txt', 'w')
+h = open(sys.argv[2], 'w')
 h.write(' '.join("%f" % i for i in w.tolist()+b.tolist()))
 h.close()
 
