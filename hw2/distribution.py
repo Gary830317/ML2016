@@ -11,7 +11,7 @@ import pandas as pd
 import random 
 import numpy as np
 import math
-
+import sys
 
 #%%
 def everage(data):
@@ -43,7 +43,7 @@ def p(x,everage0,everage1,cov_matrix):
     return f
 
 #%%
-traindata_location='sys.argv[1]'
+traindata_location=sys.argv[1]
 
 train=pd.read_csv(traindata_location,encoding='big5',header=None)
 train.columns=['id']+range(1,58)+['label']
