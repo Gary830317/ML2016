@@ -11,7 +11,7 @@ import pandas as pd
 import random 
 import numpy as np
 import math
-
+import sys
 
 #%%
 def sigmoid_function(z):
@@ -24,7 +24,7 @@ def prediction(X,w,b):
     return sigmoid_function(np.dot(X,w)+b)
 
 #%%
-testfile_location = "sys.argv[2]"
+testfile_location = sys.argv[2]
 data_test = pd.read_csv(testfile_location,encoding='big5',header=None) 
 
 data_test.columns=['id']+range(1,58)
@@ -32,12 +32,12 @@ data_test[55]=data_test[55]/10
 data_test[56]=data_test[56]/50
 data_test[57]=data_test[57]/1000
 
-g= np.loadtxt('sys.argv[1]')
+g= np.loadtxt(sys.argv[1])
 w=g[0:57]
 b=g[57]
 
 
-with open("sys.argv[3]", 'wb') as csvfile:
+with open(sys.argv[3], 'wb') as csvfile:
     spamwriter = csv.writer(csvfile, delimiter=',')
     spamwriter.writerow(['id', 'label'])
     t=0
